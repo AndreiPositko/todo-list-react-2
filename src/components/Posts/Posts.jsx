@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
 
 export default class Posts extends React.Component {
   constructor() {
@@ -31,19 +29,18 @@ export default class Posts extends React.Component {
   }
 
   render() {
-    const { posts } = this.state;
+    const { posts,isShowLoader } = this.state;
     return (
       <div>
-        <Header />
         <section>
-          {this.state.isShowLoader && <h1>Loading...</h1>}
+          { isShowLoader && <h1>Loading...</h1>}
+          <h2>Posts</h2>
           <ul>
             {posts.map((post) => (
               <li key={post.id}>{post.title}</li>
             ))}
           </ul>
         </section>
-        <Footer />
       </div>
     );
   }
