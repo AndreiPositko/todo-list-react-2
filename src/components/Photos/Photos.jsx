@@ -31,7 +31,7 @@ class Photos extends Component {
         return (
             <div>
                 <section>
-                    <h2>Photos</h2>
+                    <h2>{ this.props.title }</h2>
                     <ul>
                         {photos.map((photo) => <li key={photo.id}>{photo.title}<img src={photo.thumbnailUrl} alt={photo.title }></img></li>)}
                     </ul>

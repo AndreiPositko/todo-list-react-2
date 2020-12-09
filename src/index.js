@@ -14,9 +14,9 @@ ReactDOM.render(
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/posts" component={Posts} />
-          <Route path="/photos" component={Photos} />
+          <Route exact path="/" component={() => <Home title="Home Page"/>} />
+          <Route path="/posts" component={() => <Posts title="Posts Page"/>} />
+          <Route path="/photos" component={() => <Photos title="Photos Page"/>} />
           <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>

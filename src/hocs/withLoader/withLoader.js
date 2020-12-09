@@ -26,7 +26,7 @@ export const withLoader = (Comp) => {
       return (
         <>
           {isShowLoader && <Loader />}
-          <Comp
+          <Comp {...this.props}
             showLoader={this.showLoader}
             hideLoader={this.hideLoader}
           />

@@ -34,7 +34,7 @@ export default class Posts extends React.Component {
       <div>
         <section>
           { isShowLoader && <h1>Loading...</h1>}
-          <h2>Posts</h2>
+          <h2>{ this.props.title}</h2>
           <ul>
             {posts.map((post) => (
               <li key={post.id}>{post.title}</li>
