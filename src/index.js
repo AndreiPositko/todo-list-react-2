@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import Header from './components/Header/';
 import Footer from './components/Footer';
+import SinglePost from './components/SinglePost';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,9 +15,13 @@ ReactDOM.render(
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={() => <Home title="Home Page"/>} />
-          <Route path="/posts" component={() => <Posts title="Posts Page"/>} />
-          <Route path="/photos" component={() => <Photos title="Photos Page"/>} />
+          <Route exact path="/" component={(props) => <Home {...props} title="Home Page" />} />
+          
+          <Route exact path="/posts" component={(props) => <Posts {...props} title="Posts Page" />} />
+          <Route exact path="/posts/:id" component={(props) => <SinglePost {...props} title="Single Post" />} />
+          
+          <Route path="/photos" component={(props) => <Photos {...props} title="Photos Page" />} />
+          
           <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>
