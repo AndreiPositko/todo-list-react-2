@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Search from '../Search';
 
 export default class Posts extends React.Component {
   constructor() {
@@ -7,6 +8,7 @@ export default class Posts extends React.Component {
     this.state = {
       posts: [],
       isShowLoader: false,
+      search: '',
     };
   }
 
@@ -29,15 +31,23 @@ export default class Posts extends React.Component {
     this.delayPosts();
   }
 
+  updateSearch = (value) => {
+        this.setState({
+            search: value,
+        })
+        console.log(this.state.search);
+    }
+
   render() {
-    const { posts,isShowLoader } = this.state;
+    const { posts, isShowLoader, search } = this.state;
     return (
       <div>
         <section>
+          <Search updateSearch={ this.updateSearch}/>
           { isShowLoader && <h1>Loading...</h1>}
           <h2>{ this.props.title}</h2>
           <ul>
-            {posts.map((post) => (
+            {posts.filter(post => post.title.includes(search)).map((post) => (
               <li key={post.id}><Link to={`/posts/${post.id}`}>{post.title}</Link></li>
             ))}
           </ul>

@@ -1,9 +1,9 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import Posts from './components/Posts';
 import Photos from './components/Photos';
 import Home from './components/Home';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import Header from './components/Header/';
 import Footer from './components/Footer';
@@ -19,7 +19,7 @@ ReactDOM.render(
           <Route
             exact
             path="/"
-            component={(props) => <Home {...props} title="Home Page" />}
+            component={(props) => <Home title="Home Page" />}
           />
 
           <Route
