@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withLoader } from '../../hocs/withLoader/withLoader';
+import { Link } from 'react-router-dom';
 
 
 class Photos extends Component {
@@ -18,7 +19,7 @@ class Photos extends Component {
             photos,
         })
         this.props.hideLoader();
-        }, 2000)
+        })
     }
 
     componentDidMount() {
@@ -26,14 +27,13 @@ class Photos extends Component {
     }
 
     render() {
-        console.warn(this.props.showLoader);
         const { photos } = this.state;
         return (
             <div>
                 <section>
                     <h2>{ this.props.title }</h2>
                     <ul>
-                        {photos.map((photo) => <li key={photo.id}>{photo.title}<img src={photo.thumbnailUrl} alt={photo.title }></img></li>)}
+                        {photos.map((photo) => <li key={photo.id}><Link to={`/photos/${photo.id}`}>{photo.title}<img src={photo.thumbnailUrl} alt={photo.title }></img></Link></li>)}
                     </ul>
                 </section>
             </div>

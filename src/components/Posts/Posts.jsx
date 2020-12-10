@@ -22,7 +22,7 @@ export default class Posts extends React.Component {
         posts,
         isShowLoader: false,
       });
-    }, 2000);
+    });
   };
 
   componentDidMount() {

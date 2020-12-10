@@ -13,7 +13,6 @@ export default class SinglePost extends Component {
     async componentDidMount() {
         const { id } = this.props.match.params;
         const post = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((result) => result.json())
-        console.log('POST', post);
         this.setState({
             title: post.title,
             body: post.body,
